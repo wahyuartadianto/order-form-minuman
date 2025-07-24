@@ -1,168 +1,147 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Form Order Minuman</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
   <style>
-    body { padding: 20px; }
-    .logo { max-height: 80px; }
-    .form-section { max-width: 600px; margin: auto; }
+    body {
+      background-color: #f8f9fa;
+      padding: 2rem;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+    .form-section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
-
-<div class="text-center mb-4">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo" alt="Logo">
-  <h2>Formulir Pemesanan</h2>
-</div>
-
-<div class="form-section">
-  <form id="orderForm">
-    <div class="mb-2">
-      <label>Nama:</label>
-      <input type="text" class="form-control" name="nama" required>
+  <div class="container">
+    <div class="text-center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo" alt="Logo">
+      <h3>Formulir Pemesanan Minuman</h3>
     </div>
-    <div class="mb-2">
-      <label>Alamat Lengkap:</label>
-      <textarea class="form-control" name="alamat" required></textarea>
-    </div>
-    <div class="mb-2">
-      <label>No Handphone:</label>
-      <input type="tel" class="form-control" name="nohp" required>
-    </div>
+    
+    <form id="orderForm" class="form-section">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama:</label>
+        <input type="text" id="nama" name="nama" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat Lengkap:</label>
+        <textarea id="alamat" name="alamat" class="form-control" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="hp" class="form-label">No Handphone:</label>
+        <input type="tel" id="hp" name="hp" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-      <label><strong>Pilih Menu:</strong></label><br>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="10000" value="Jeruk Peras Murni" id="menu1">
-        <label class="form-check-label" for="menu1">Jeruk Peras Murni (Rp10.000)</label>
+      <div class="mb-3">
+        <label class="form-label">Menu Order:</label>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Jeruk Peras Murni|10000" id="item1">
+          <label class="form-check-label" for="item1">Jeruk Peras Murni (Rp10.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Jeruk Peras Yakult|10000" id="item2">
+          <label class="form-check-label" for="item2">Jeruk Peras Yakult (Rp10.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Jeruk Peras Madu|15000" id="item3">
+          <label class="form-check-label" for="item3">Jeruk Peras Madu (Rp15.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Kopi Hitam|5000" id="item4">
+          <label class="form-check-label" for="item4">Kopi Hitam (Rp5.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Kopi Susu|8000" id="item5">
+          <label class="form-check-label" for="item5">Kopi Susu (Rp8.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Teh Panas|5000" id="item6">
+          <label class="form-check-label" for="item6">Teh Panas (Rp5.000)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input menu" type="checkbox" value="Teh Susu|8000" id="item7">
+          <label class="form-check-label" for="item7">Teh Susu (Rp8.000)</label>
+        </div>
       </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="10000" value="Jeruk Peras Yakult" id="menu2">
-        <label class="form-check-label" for="menu2">Jeruk Peras Yakult (Rp10.000)</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="15000" value="Jeruk Peras Madu" id="menu3">
-        <label class="form-check-label" for="menu3">Jeruk Peras Madu (Rp15.000)</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="5000" value="Kopi Hitam" id="menu4">
-        <label class="form-check-label" for="menu4">Kopi Hitam (Rp5.000)</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="8000" value="Kopi Susu" id="menu5">
-        <label class="form-check-label" for="menu5">Kopi Susu (Rp8.000)</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="5000" value="Teh Panas" id="menu6">
-        <label class="form-check-label" for="menu6">Teh Panas (Rp5.000)</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input menu" type="checkbox" data-harga="8000" value="Teh Susu" id="menu7">
-        <label class="form-check-label" for="menu7">Teh Susu (Rp8.000)</label>
-      </div>
-    </div>
 
-    <div class="mb-3">
-      <label><strong>Total: </strong></label>
-      <span id="total">Rp 0</span>
-    </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Total Harga: <span id="totalHarga">Rp0</span></label>
+      </div>
 
-    <button type="submit" class="btn btn-success">Order Sekarang</button>
-  </form>
-
-  <div class="mt-4 d-none" id="strukArea">
-    <h5>QR Code Struk:</h5>
-    <div id="qrcode"></div>
-    <button onclick="window.print()" class="btn btn-secondary mt-2">Cetak Struk</button>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success">Kirim Pesanan via WhatsApp</button>
+      </div>
+    </form>
   </div>
-</div>
 
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxdEXX67lHXpRFK0hX0HFCJkaG-hme25czDtgOtMXitmTe0Sq9rNBtRqq9CNxDsSDPl/exec";
+  <script>
+    const form = document.getElementById("orderForm");
+    const menuCheckboxes = document.querySelectorAll(".menu");
+    const totalDisplay = document.getElementById("totalHarga");
 
-const form = document.getElementById('orderForm');
-const totalSpan = document.getElementById('total');
-let total = 0;
-
-document.querySelectorAll(".menu").forEach(item => {
-  item.addEventListener('change', () => {
-    total = 0;
-    document.querySelectorAll(".menu:checked").forEach(chk => {
-      total += parseInt(chk.getAttribute("data-harga"));
-    });
-    totalSpan.textContent = "Rp " + total.toLocaleString("id-ID");
-  });
-});
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const nama = form.nama.value;
-  const alamat = form.alamat.value;
-  const nohp = form.nohp.value;
-  const checkedMenus = Array.from(document.querySelectorAll(".menu:checked"));
-  if (checkedMenus.length === 0) {
-    Swal.fire("Menu belum dipilih", "Silakan pilih minimal satu menu.", "warning");
-    return;
-  }
-
-  const pesanan = checkedMenus.map(chk => chk.value);
-  const dataToSend = {
-    nama, alamat, nohp, pesanan, total
-  };
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(dataToSend),
-    headers: {
-      "Content-Type": "application/json"
+    function formatRupiah(angka) {
+      return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        minimumFractionDigits: 0
+      }).format(angka);
     }
-  })
-  .then(res => res.json())
-  .then(result => {
-    if (result.result === "success") {
-      const pesan = `Halo, saya ingin order:\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}\nPesanan:\n- ${pesanan.join("\n- ")}\nTotal: Rp ${total.toLocaleString("id-ID")}`;
-      const urlWA = `https://wa.me/6282335566505?text=${encodeURIComponent(pesan)}`;
-      Swal.fire({
-        title: "Berhasil!",
-        text: "Data berhasil dikirim ke Google Sheets & WhatsApp",
-        icon: "success",
-        showCancelButton: true,
-        confirmButtonText: "Kirim WA",
-        cancelButtonText: "Tutup"
-      }).then((res) => {
-        if (res.isConfirmed) {
-          window.open(urlWA, "_blank");
+
+    function updateTotal() {
+      let total = 0;
+      menuCheckboxes.forEach(item => {
+        if (item.checked) {
+          const price = parseInt(item.value.split("|")[1]);
+          total += price;
+        }
+      });
+      totalDisplay.textContent = formatRupiah(total);
+    }
+
+    menuCheckboxes.forEach(cb => cb.addEventListener("change", updateTotal));
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value.trim();
+      const alamat = document.getElementById("alamat").value.trim();
+      const hp = document.getElementById("hp").value.trim();
+
+      let pesan = `*Pesanan Baru Minuman:*\n`;
+      pesan += `Nama: ${nama}\nAlamat: ${alamat}\nHP: ${hp}\n\n`;
+      pesan += `Menu:\n`;
+
+      let total = 0;
+      menuCheckboxes.forEach(item => {
+        if (item.checked) {
+          const [menu, harga] = item.value.split("|");
+          pesan += `- ${menu} (Rp${parseInt(harga).toLocaleString()})\n`;
+          total += parseInt(harga);
         }
       });
 
-      // tampilkan QR Code
-      document.getElementById("strukArea").classList.remove("d-none");
-      document.getElementById("qrcode").innerHTML = "";
-      new QRCode(document.getElementById("qrcode"), {
-        text: pesan,
-        width: 200,
-        height: 200
-      });
+      if (total === 0) {
+        Swal.fire("Oops", "Silakan pilih minimal 1 menu.", "warning");
+        return;
+      }
 
-      form.reset();
-      total = 0;
-      totalSpan.textContent = "Rp 0";
-    } else {
-      Swal.fire("Gagal menyimpan data", "Coba lagi.", "error");
-    }
-  })
-  .catch(err => {
-    console.error(err);
-    Swal.fire("Gagal menyimpan data", "Coba lagi.", "error");
-  });
-});
-</script>
+      pesan += `\nTotal: Rp${total.toLocaleString()}`;
 
+      const encodedPesan = encodeURIComponent(pesan);
+      const waUrl = `https://wa.me/6282335566505?text=${encodedPesan}`;
+      window.open(waUrl, "_blank");
+    });
+  </script>
 </body>
 </html>
