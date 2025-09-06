@@ -56,7 +56,7 @@
         </div>
         <div class="form-check">
           <input class="form-check-input menu" type="checkbox" value="Jeruk Peras Madu|15000" id="item3">
-          <label class="form-check-label" for="item3">Jeruk Peras Madu (Rp15.000)</label>
+          <label class="form-check-label" for="item3">Jeruk Peras Madu (Rp12.000)</label>
         </div>
         <div class="form-check">
           <input class="form-check-input menu" type="checkbox" value="Kopi Hitam|5000" id="item4">
@@ -64,7 +64,7 @@
         </div>
         <div class="form-check">
           <input class="form-check-input menu" type="checkbox" value="Kopi Susu|8000" id="item5">
-          <label class="form-check-label" for="item5">Kopi Susu (Rp8.000)</label>
+          <label class="form-check-label" for="item5">Kopi Susu (Rp5.000)</label>
         </div>
         <div class="form-check">
           <input class="form-check-input menu" type="checkbox" value="Teh Panas|5000" id="item6">
@@ -72,7 +72,7 @@
         </div>
         <div class="form-check">
           <input class="form-check-input menu" type="checkbox" value="Teh Susu|8000" id="item7">
-          <label class="form-check-label" for="item7">Teh Susu (Rp8.000)</label>
+          <label class="form-check-label" for="item7">Teh Susu (Rp5.000)</label>
         </div>
       </div>
 
